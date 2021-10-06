@@ -5,13 +5,14 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
+@TeleOp
 public class ClawTest extends LinearOpMode{
     private Servo s1;
     private Servo s2;
     private DcMotor motor1;
 
     //position/angle of a servo ranges from 0 to 1
-    final double s1Ang = (double)55/360;
+    final double s1Ang = (double)80/360;
     final double s2Ang = (double)90/360;
     final int motorSpeed = 1;
     final int motorMs = 1000;
