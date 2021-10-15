@@ -20,7 +20,7 @@ public class SebastianTest extends LinearOpMode {
         while (opModeIsActive()) {
             telemetry.addData("opModeIsActive", opModeIsActive());
 
-            telemetry.update();motor1.setPower(1);
+            telemetry.update();motor1.setPower(0.5);
 
             telemetry.addData("motor power set to 1", "running");
             telemetry.update();
