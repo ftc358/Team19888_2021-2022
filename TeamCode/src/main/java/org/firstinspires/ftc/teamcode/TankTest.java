@@ -17,6 +17,7 @@ public class TankTest extends LinearOpMode {
     final int msBack = 2000;
     final int msLeft = 2000;
     final int msRight = 2000;
+    final int msStop = 500;
 
     public void runOpMode() throws InterruptedException {
         //initializing motors
@@ -33,13 +34,22 @@ public class TankTest extends LinearOpMode {
             goForward(1);
             Thread.sleep(msForward);
 
+            stopRobot();
+            Thread.sleep(msStop);
+
             //moving the robot back
             goBack(1);
             Thread.sleep(msBack);
 
+            stopRobot();
+            Thread.sleep(msStop);
+
             //turning the robot left
             turnLeft(1);
             Thread.sleep(msLeft);
+
+            stopRobot();
+            Thread.sleep(msStop);
 
             //turning the robot right
             turnRight(1);
@@ -71,8 +81,8 @@ public class TankTest extends LinearOpMode {
     }
 
     public void turnRight(int speed) {
-        motor1.setPower(-speed);
-        motor2.setPower(speed);
+        motor1.setPower(speed);
+        motor2.setPower(-speed);
     }
 
     public void stopRobot() {
