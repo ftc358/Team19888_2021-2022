@@ -16,11 +16,24 @@ public class BasicsMode {
     private HardwareDevice ColorSensor;
     private HardwareDevice Servo;
     private HardwareDevice UltrasonicSensor;
+    public Servo servo;
 
     public void init(HardwareMap hwmap){
         touchSensor = hwmap.get(DigitalChannel.class, "touchsensor");
         touchSensor.setMode(DigitalChannel.Mode.INPUT);
         motor = hwmap.get(DcMotor.class, "motor");
         motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+    public boolean isTouchSensorPressed(){
+        return !touchSensor.getState();
+    }
+    public void setPowerSpeed(double speed){
+        motor.setPower(speed);
+    }
+    public double getMotorRotation(){
+        return motor.getCurrentPosition();
+    }
+    public void setServoPosition(double position){
+        servo.setPosition(position);
     }
 }
