@@ -90,4 +90,6 @@ public class ClawTest extends LinearOpMode {
     public void motorStop() {
         motor1.setPower(0);
     }
+
+
 }
