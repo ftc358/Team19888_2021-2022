@@ -11,23 +11,26 @@ public class ControllerTest extends LinearOpMode {
     //motor1 = left, motor2 = right
     private DcMotor motor1;
     private DcMotor motor2;
+    private DcMotor motor3;
 
     public void runOpMode() throws InterruptedException {
         //initializing motors
         motor1 = hardwareMap.dcMotor.get("motor1");
         motor2 = hardwareMap.dcMotor.get("motor2");
+        motor3 = hardwareMap.dcMotor.get("motor3");
 
         waitForStart();
 
         while (opModeIsActive()) {
-            telemetry.addData("opModeIsActive", opModeIsActive());
-            telemetry.update();
 
             //moving the robot forward
             ForwardBack();
             Turn();
+            Spin();
 
-            telemetry.addData("both motors power set to 1", "running");
+            telemetry.addData("forward power set to", gamepad1.right_stick_y);
+            telemetry.addData("turn power set to", gamepad1.right_stick_y);
+            telemetry.addData("spin power set to", gamepad1.right_trigger);
             telemetry.update();
         }
     }
@@ -43,6 +46,10 @@ public class ControllerTest extends LinearOpMode {
     public void Turn() {
         motor1.setPower(-gamepad1.right_stick_x);
         motor2.setPower(gamepad1.right_stick_x);
+    }
+
+    public void Spin() {
+        motor3.setPower(gamepad1.right_trigger);
     }
 
     public void stopRobot() {
