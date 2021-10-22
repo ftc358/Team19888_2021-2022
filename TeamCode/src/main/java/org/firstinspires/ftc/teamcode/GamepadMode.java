@@ -27,7 +27,7 @@ public class GamepadMode extends LinearOpMode {
             Armservo();
 
             telemetry.addData("motor speed", gamepad1.right_stick_y );
-            telemetry.addData("armservo position", gamepad1.left_stick_x );
+            telemetry.addData("armservo position", gamepad1.left_stick_y );
             telemetry.update();
         }
     }
@@ -37,12 +37,10 @@ public class GamepadMode extends LinearOpMode {
 
     public void MotorControl1() {
         motor1.setPower(gamepad1.right_stick_y );
-        armservo.setPosition(gamepad1.right_stick_y );
     }
 
     public void Armservo() {
-        motor1.setPower(-gamepad1.left_stick_x );
-        armservo.setPosition(gamepad1.left_stick_x );
+        armservo.setPosition(gamepad1.left_stick_y );
     }
 
 }

@@ -50,4 +50,5 @@ public class BasicsMode {
     public double getDistance(DistanceUnit du) {
         return distanceSensor.getDistance(du);
     }
+    public double
 }

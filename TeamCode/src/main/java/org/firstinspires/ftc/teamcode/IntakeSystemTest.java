@@ -6,8 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp
 public class IntakeSystemTest extends LinearOpMode {
-    //declaring motors
-    //motor1 = left, motor2 = right
+
     private DcMotor motor1;
     private DcMotor motor2;
 
@@ -16,7 +15,6 @@ public class IntakeSystemTest extends LinearOpMode {
         motor1 = hardwareMap.dcMotor.get("motor1");
         motor2 = hardwareMap.dcMotor.get("motor2");
 
-        //reversing motor2's direction
         motor2.setDirection(DcMotor.Direction.REVERSE);
 
         waitForStart();
