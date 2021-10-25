@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
 public class SebastianTest extends LinearOpMode {
@@ -10,10 +11,12 @@ public class SebastianTest extends LinearOpMode {
 
     //motor1 = left, motor2 = right
     private DcMotor motor1;
+    private Servo s1;
 
     public void runOpMode() throws InterruptedException {
         //initializing motors
         motor1 = hardwareMap.dcMotor.get("motor1");
+        s1 = this.hardwareMap.servo.get("servo1");
 
         waitForStart();
 
@@ -26,4 +29,6 @@ public class SebastianTest extends LinearOpMode {
             telemetry.update();
         }
     }
+
+    public void
 }
