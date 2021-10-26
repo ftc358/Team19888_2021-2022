@@ -30,7 +30,7 @@ public class ControllerTest extends LinearOpMode {
             Spin();
             MoveLadder();
 
-            telemetry.addData("forward speed set to", gamepad1.left_stick_y);
+            telemetry.addData("forward speed set to", -gamepad1.left_stick_y);
             telemetry.addData("turn speed set to", gamepad1.right_stick_x);
             telemetry.addData("left bumper", gamepad1.left_bumper);
             telemetry.addData("right bumper", gamepad1.right_bumper);
@@ -42,8 +42,8 @@ public class ControllerTest extends LinearOpMode {
     //you can guess what they do by their names
 
     public void ForwardBack() {
-        motor1.setPower(gamepad1.left_stick_y);
-        motor2.setPower(gamepad1.left_stick_y);
+        motor1.setPower(-gamepad1.left_stick_y);
+        motor2.setPower(-gamepad1.left_stick_y);
     }
 
     public void Turn() {
@@ -60,11 +60,8 @@ public class ControllerTest extends LinearOpMode {
             motor4.setPower(1);
         }else if (gamepad1.right_bumper) {
             motor4.setPower(-1);
+        }else {
+            motor4.setPower(0);
         }
-    }
-
-    public void stopRobot() {
-        motor1.setPower(0);
-        motor2.setPower(0);
     }
 }
