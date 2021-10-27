@@ -25,8 +25,8 @@ public class ControllerTest extends LinearOpMode {
 
         while (opModeIsActive()) {
             //moving the robot forward
+            Turn2();
             ForwardBack();
-            Turn();
             Spin();
             MoveLadder();
 
@@ -49,6 +49,14 @@ public class ControllerTest extends LinearOpMode {
     public void Turn() {
         motor1.setPower(-gamepad1.right_stick_x);
         motor2.setPower(gamepad1.right_stick_x);
+    }
+
+    public void Turn2() {
+        if (gamepad1.right_stick_x > 0.5) {
+            motor1.setPower(-gamepad1.right_stick_x);
+        }else if (gamepad1.right_stick_x < -0.5) {
+            motor2.setPower(gamepad1.right_stick_x);
+        }
     }
 
     public void Spin() {
