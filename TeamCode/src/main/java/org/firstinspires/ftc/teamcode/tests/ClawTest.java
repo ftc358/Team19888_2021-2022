@@ -27,6 +27,7 @@ public class ClawTest extends LinearOpMode {
         while (opModeIsActive()) {
             rotateClaw();
             telemetry.addData("Servo angle", s1.getPosition());
+            telemetry.update();
         }
     }
 
