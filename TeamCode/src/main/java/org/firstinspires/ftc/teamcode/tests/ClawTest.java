@@ -35,9 +35,9 @@ public class ClawTest extends LinearOpMode {
     //you can guess what they do by their names
 
     public void rotateClaw() {
-        if (gamepad1.right_bumper && s1.getPosition() < s1Ang) {
+        if (gamepad1.right_bumper) {
             s1.setPosition(s1.getPosition()+0.1);
-        }else if (gamepad1.left_bumper && s1.getPosition() > 0) {
+        }else if (gamepad1.left_bumper) {
             s1.setPosition(s1.getPosition()-0.1);
         }
     }
