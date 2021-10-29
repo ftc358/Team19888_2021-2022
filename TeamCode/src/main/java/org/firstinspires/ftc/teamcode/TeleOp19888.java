@@ -3,23 +3,27 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
-public class ControllerTest extends LinearOpMode {
+public class TeleOp19888 extends LinearOpMode {
     //declaring motors
 
     //motor1 = left, motor2 = right, motor3 = spinning wheel, motor4 = ladder
-    private DcMotor motor1;
-    private DcMotor motor2;
-    private DcMotor motor3;
-    private DcMotor motor4;
+    private DcMotor motorLeft;
+    private DcMotor motorRight;
+    private DcMotor motorWheel;
+    private DcMotor motorSlide;
+    private Servo servoClaw;
+
 
     public void runOpMode() throws InterruptedException {
         //initializing motors
-        motor1 = hardwareMap.dcMotor.get("motor1");
-        motor2 = hardwareMap.dcMotor.get("motor2");
-        motor3 = hardwareMap.dcMotor.get("motor3");
-        motor4 = hardwareMap.dcMotor.get("motor4");
+        motorLeft = hardwareMap.dcMotor.get("motor1");
+        motorRight = hardwareMap.dcMotor.get("motor2");
+        motorWheel = hardwareMap.dcMotor.get("motor3");
+        motorSlide = hardwareMap.dcMotor.get("motor4");
+        servoClaw = hardwareMap.servo.get("servo1");
 
         waitForStart();
 
@@ -42,34 +46,34 @@ public class ControllerTest extends LinearOpMode {
     //you can guess what they do by their names
 
     public void ForwardBack() {
-        motor1.setPower(-gamepad1.left_stick_y);
-        motor2.setPower(-gamepad1.left_stick_y);
+        motorLeft.setPower(-gamepad1.left_stick_y);
+        motorRight.setPower(-gamepad1.left_stick_y);
     }
 
     public void Turn() {
-        motor1.setPower(-gamepad1.right_stick_x);
-        motor2.setPower(gamepad1.right_stick_x);
+        motorLeft.setPower(-gamepad1.right_stick_x);
+        motorRight.setPower(gamepad1.right_stick_x);
     }
 
     public void Turn2() {
         if (gamepad1.right_stick_x > 0.5) {
-            motor1.setPower(-gamepad1.right_stick_x);
+            motorLeft.setPower(-gamepad1.right_stick_x);
         }else if (gamepad1.right_stick_x < -0.5) {
-            motor2.setPower(gamepad1.right_stick_x);
+            motorRight.setPower(gamepad1.right_stick_x);
         }
     }
 
     public void Spin() {
-        motor3.setPower(gamepad1.right_trigger);
+        motorWheel.setPower(gamepad1.right_trigger);
     }
 
     public void MoveLadder() {
         if (gamepad1.left_bumper) {
-            motor4.setPower(1);
+            motorSlide.setPower(1);
         }else if (gamepad1.right_bumper) {
-            motor4.setPower(-1);
+            motorSlide.setPower(-1);
         }else {
-            motor4.setPower(0);
+            motorSlide.setPower(0);
         }
     }
 }
