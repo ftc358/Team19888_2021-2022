@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 /*
 
-***This is the code for Driver Control Period***
+***This is the code the for Driver Control Period***
 
 These are the controls as of right now.
 Feel free to edit these as you edit this code
@@ -25,8 +25,6 @@ b --> close claw
 @TeleOp
 public class TeleOp19888 extends LinearOpMode {
     //declaring motors
-
-    //motor1 = left, motor2 = right, motor3 = spinning wheel, motor4 = ladder
     private DcMotor motorLeft;
     private DcMotor motorRight;
     private DcMotor motorWheel;
@@ -35,7 +33,7 @@ public class TeleOp19888 extends LinearOpMode {
 
 
     public void runOpMode() throws InterruptedException {
-        //initializing motors
+        //initializing motors/servos
         motorLeft = hardwareMap.dcMotor.get("motor1");
         motorRight = hardwareMap.dcMotor.get("motor2");
         motorWheel = hardwareMap.dcMotor.get("motor3");
@@ -45,13 +43,20 @@ public class TeleOp19888 extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
+            //Moves the claw when corresponding buttons are pressed
             rotateClaw();
 
             //TODO try Turn2() instead of Turn() to see if it's better
+            //Turns the robot when corresponding buttons are pressed
             Turn();
 
+            //Moves the robot forward/backward when corresponding buttons are pressed
             ForwardBack();
+
+            //Spins the spinning wheel when corresponding buttons are pressed
             Spin();
+
+            //Moves the linear slide up/down when corresponding buttons are pressed
             MoveLadder();
 
             telemetry.addData("forward speed set to", -gamepad1.right_stick_y);

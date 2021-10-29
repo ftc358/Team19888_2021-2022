@@ -10,6 +10,16 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.Came
 import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
 
+/*
+
+An attempt to get Vuforia working.
+
+Doesn't work.
+
+Ask Charlie for assistance.
+
+ */
+
 @Autonomous(name = "Vuforia")
 public class  VuforiaTest extends LinearOpMode {
     private static final String TFOD_MODEL_ASSET = "FreightFrenzy_BCDM.tflite";

@@ -5,6 +5,12 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
+/*
+
+Test code for Armen's claw using a controller
+
+ */
+
 @TeleOp
 public class ClawTest extends LinearOpMode {
     //declaring servos and motors

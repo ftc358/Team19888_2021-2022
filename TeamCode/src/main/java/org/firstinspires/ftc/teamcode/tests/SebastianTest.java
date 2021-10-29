@@ -5,6 +5,12 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
+/*
+
+Test code for Sebastian's invention
+
+ */
+
 @TeleOp
 public class SebastianTest extends LinearOpMode {
     //declaring motors

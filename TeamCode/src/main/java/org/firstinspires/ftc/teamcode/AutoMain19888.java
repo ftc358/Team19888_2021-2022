@@ -5,6 +5,14 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
+/*
+
+***This is the code for the Autonomous Period***
+
+Most of the code is not complete yet.
+
+ */
+
 @Autonomous
 public class AutoMain19888 extends LinearOpMode {
     private DcMotor motorLeft;
