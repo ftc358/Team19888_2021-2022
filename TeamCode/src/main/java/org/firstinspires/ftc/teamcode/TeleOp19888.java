@@ -5,6 +5,23 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
+/*
+
+***This is the code for Driver Control Period***
+
+These are the controls as of right now.
+Feel free to edit these as you edit this code
+
+right joystick --> Moving the robot forward/backward
+left joystick --> Making the robot turn left/right
+right trigger --> Spinning wheel
+right bumper --> moving the linear slide up
+left bumper --> moving the linear slide down
+a --> open claw
+b --> close claw
+
+ */
+
 @TeleOp
 public class TeleOp19888 extends LinearOpMode {
     //declaring motors
@@ -28,14 +45,17 @@ public class TeleOp19888 extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            //moving the robot forward
-            Turn2();
+            rotateClaw();
+
+            //TODO try Turn2() instead of Turn() to see if it's better
+            Turn();
+
             ForwardBack();
             Spin();
             MoveLadder();
 
-            telemetry.addData("forward speed set to", -gamepad1.left_stick_y);
-            telemetry.addData("turn speed set to", gamepad1.right_stick_x);
+            telemetry.addData("forward speed set to", -gamepad1.right_stick_y);
+            telemetry.addData("turn speed set to", gamepad1.left_stick_x);
             telemetry.addData("left bumper", gamepad1.left_bumper);
             telemetry.addData("right bumper", gamepad1.right_bumper);
             telemetry.update();
@@ -46,13 +66,13 @@ public class TeleOp19888 extends LinearOpMode {
     //you can guess what they do by their names
 
     public void ForwardBack() {
-        motorLeft.setPower(-gamepad1.left_stick_y);
-        motorRight.setPower(-gamepad1.left_stick_y);
+        motorLeft.setPower(-gamepad1.right_stick_y);
+        motorRight.setPower(-gamepad1.right_stick_y);
     }
 
     public void Turn() {
-        motorLeft.setPower(-gamepad1.right_stick_x);
-        motorRight.setPower(gamepad1.right_stick_x);
+        motorLeft.setPower(-gamepad1.left_stick_x);
+        motorRight.setPower(gamepad1.left_stick_x);
     }
 
     public void Turn2() {
@@ -74,6 +94,16 @@ public class TeleOp19888 extends LinearOpMode {
             motorSlide.setPower(-1);
         }else {
             motorSlide.setPower(0);
+        }
+    }
+
+    public void rotateClaw() {
+        //TODO fix this function; it keeps rotating after the bumper is released
+        //suggestion: maybe change 0.1 to 0.01
+        if (gamepad1.a) {
+            servoClaw.setPosition(servoClaw.getPosition()+0.1);
+        }else if (gamepad1.b) {
+            servoClaw.setPosition(servoClaw.getPosition()-0.1);
         }
     }
 }

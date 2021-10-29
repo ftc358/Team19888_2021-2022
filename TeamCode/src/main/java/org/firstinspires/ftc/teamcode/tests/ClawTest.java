@@ -35,9 +35,11 @@ public class ClawTest extends LinearOpMode {
     //you can guess what they do by their names
 
     public void rotateClaw() {
-        if (gamepad1.right_bumper && s1.getPosition() < s1Ang) {
+        //TODO fix this function; it keeps rotating after the bumper is released
+        //suggestion: maybe change 0.1 to 0.01
+        if (gamepad1.a && s1.getPosition() < s1Ang) {
             s1.setPosition(s1.getPosition()+0.1);
-        }else if (gamepad1.left_bumper && s1.getPosition() > 0) {
+        }else if (gamepad1.b && s1.getPosition() > 0) {
             s1.setPosition(s1.getPosition()-0.1);
         }
     }
