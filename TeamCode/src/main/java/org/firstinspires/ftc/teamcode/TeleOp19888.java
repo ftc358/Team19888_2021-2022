@@ -43,27 +43,8 @@ public class TeleOp19888 extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            //Moves the claw when corresponding buttons are pressed
-            rotateClaw();
-
-            //TODO try Turn2() instead of Turn() to see if it's better
-            //Turns the robot when corresponding buttons are pressed
-            Turn();
-
-            //Moves the robot forward/backward when corresponding buttons are pressed
-            ForwardBack();
-
-            //Spins the spinning wheel when corresponding buttons are pressed
-            Spin();
-
-            //Moves the linear slide up/down when corresponding buttons are pressed
-            MoveLadder();
-
-            telemetry.addData("forward speed set to", -gamepad1.right_stick_y);
-            telemetry.addData("turn speed set to", gamepad1.left_stick_x);
-            telemetry.addData("left bumper", gamepad1.left_bumper);
-            telemetry.addData("right bumper", gamepad1.right_bumper);
-            telemetry.update();
+            motorLeft.setPower(-gamepad1.right_stick_y);
+            motorRight.setPower(-gamepad1.right_stick_y);
         }
     }
 
